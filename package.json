@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "start": "rollup -c rollup.config.dev.js --bundleConfigAsCjs --watch",
-    "deploy": "npm version patch && npm publish --access public ./"
+    "deploy": "npm run build && npm version patch && npm publish --access public ./"
   },
   "repository": "https://github.com/liangshen001/react-canvas",
   "eslintConfig": {
