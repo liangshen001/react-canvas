@@ -42,7 +42,7 @@ const config = {
         }),
         json(),
         resolve(),
-        terser(),
+        terser({format: {comments: false}}),
     ],
     watch: {
         clearScreen: false,
