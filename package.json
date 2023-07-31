@@ -1,10 +1,13 @@
 {
   "name": "@liangshen/react-canvas",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "dev": "rollup -c rollup.config.dev.js --bundleConfigAsCjs --watch",
