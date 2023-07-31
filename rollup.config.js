@@ -4,11 +4,11 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
-// import svgr from '@svgr/rollup';
 import terser from '@rollup/plugin-terser';
 import typescriptEngine from 'typescript';
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './package.json';
 import json from "@rollup/plugin-json";
+import clear from "rollup-plugin-clear";
 
 const config = {
     input: './src/index.ts',
@@ -27,6 +27,7 @@ const config = {
         },
     ],
     plugins: [
+        clear({targets: ['dist']}),
         external(),
         typescript({
             tsconfig: './tsconfig.json',

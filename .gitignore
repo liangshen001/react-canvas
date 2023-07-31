@@ -26,3 +26,6 @@ yarn-error.log*
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/react-canvas.iml
 /.idea/vcs.xml
+
+/dist
+/dev/dist

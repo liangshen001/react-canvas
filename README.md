@@ -5,7 +5,7 @@
 ## 安装
 
 ```
-npm i @liangshen/react-canvas minigame-canvas-engine -S
+npm i @liangshen/react-canvas -S
 ```
 
 ## 使用方法
@@ -34,13 +34,13 @@ export const App = () => <>
 </>
 ```
 
-## @liangshen/react-canvas 提供了一些组件
+## @liangshen/react-canvas 提供的一些组件
 
 * Text 文本
-* Image 图片类似html中的<img>
-* View 类似html中的<div>
-* ScrollView 类似html中可滚动的<div>
+* Image 图片类似html中的`img`
+* View 类似html中的`div`
+* ScrollView 类似html中可滚动的`div`
 
-### 最后特别感谢下 minigame-canvas-engine 的作者🙏
+### 使用到了minigame-canvas-engine做为Canvas的渲染库, 还是特别感谢下作者🙏
 
 
