@@ -8,6 +8,11 @@
     "dist",
     "README.md"
   ],
+  "keywords": [
+    "react",
+    "canvas",
+    "minigame"
+  ],
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "dev": "rollup -c rollup.config.dev.js --bundleConfigAsCjs --watch",
