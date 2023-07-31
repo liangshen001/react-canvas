@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "react-reconciler": "^0.29.0",
-    "minigame-canvas-engine": "^1.0.14"
+    "minigame-canvas-engine": "1.0.14"
   }
 }
