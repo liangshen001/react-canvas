@@ -9,6 +9,7 @@ import typescriptEngine from 'typescript';
 import pkg from './package.json';
 import json from "@rollup/plugin-json";
 import clear from "rollup-plugin-clear";
+import replace from "@rollup/plugin-replace";
 
 const config = {
     input: './src/index.ts',
@@ -42,6 +43,10 @@ const config = {
         }),
         json(),
         resolve(),
+        replace({
+            preventAssignment: true,
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        }),
         terser({format: {comments: false}}),
     ],
     watch: {
