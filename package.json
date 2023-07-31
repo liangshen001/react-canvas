@@ -1,6 +1,6 @@
 {
   "name": "@liangshen/react-canvas",
-  "version": "18.0.3",
+  "version": "18.0.4",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
