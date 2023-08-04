@@ -49,6 +49,7 @@ const config = {
         }),
         terser({format: {comments: false}}),
     ],
+    external: ['minigame-canvas-engine'],
     watch: {
         clearScreen: false,
     },
