@@ -1,4 +1,4 @@
-import Layout from 'minigame-canvas-engine';
+import Layout from "./minigame-canvas-engine";
 import ReactReconciler from "react-reconciler";
 import React from "react";
 
@@ -14,11 +14,15 @@ function handelStyle(style: any) {
     return style;
 }
 
-class Element extends Layout.Element {}
-class Text extends Layout.Text {}
-class View extends Layout.View {}
-class ScrollView extends Layout.ScrollView {}
-class Image extends Layout.Image {}
+type Element = {
+    children: any[]
+} & any;
+type Text = any;
+// class Element extends Layout.Element {}
+// class Text extends Layout.Text {}
+// class View extends Layout.View {}
+// class ScrollView extends Layout.ScrollView {}
+// class Image extends Layout.Image {}
 
 const reconciler = ReactReconciler<string, any, Element, Element, Text, Element, Element, any, any, any, any, any, any>({
     appendChildToContainerChildSet(childSet: any, child: any): void {
@@ -190,7 +194,7 @@ const reconciler = ReactReconciler<string, any, Element, Element, Text, Element,
         parentInstance.removeChild(child)
     },
     insertInContainerBefore(container, child, beforeChild) {
-        const index = container.children.findIndex(e => e === beforeChild);
+        const index = container.children.findIndex((e: any) => e === beforeChild);
         child.parent = container;
         container.children.splice(index, 0, child);
         container.isDirty = true;
@@ -201,7 +205,7 @@ const reconciler = ReactReconciler<string, any, Element, Element, Text, Element,
         }
     },
     insertBefore(parentInstance, child, beforeChild) {
-        const index = parentInstance.children.findIndex(e => e === beforeChild);
+        const index = parentInstance.children.findIndex((e: any) => e === beforeChild);
         child.parent = parentInstance;
         parentInstance.children.splice(index, 0, child);
         parentInstance.isDirty = true;
@@ -276,7 +280,14 @@ export default {
         let context = canvas.getContext("2d");
         Layout.clear();
         Layout.init('<view id="root"></view>', {root: {width: canvas.width, height: canvas.height}}, undefined as any);
-        Layout.updateViewPort(canvas.getBoundingClientRect());
+        let box;
+        // @ts-ignore
+        if (window.GameGlobal) {
+            box = {x: 0, y: 0, width: canvas.width / window.devicePixelRatio, height: canvas.height / window.devicePixelRatio}
+        } else {
+            box = canvas.getBoundingClientRect();
+        }
+        Layout.updateViewPort(box);
         Layout.layout(context);
         // 每次初始化之前先执行清理逻辑保证内存不会一直增长
         // 初始化引擎
