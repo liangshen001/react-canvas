@@ -152,7 +152,8 @@ const reconciler = ReactReconciler<string, any, Element, Element, Text, Element,
         const {style, ...restProps} = props;
         const options = {
             ...restProps,
-            style: handelStyle(style)
+            style: handelStyle(style),
+            idName: restProps.id
         }
         if (constructorMap.has(type)) {
             let constructor = constructorMap.get(type)!;
