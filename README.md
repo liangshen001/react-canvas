@@ -9,12 +9,21 @@ node v16+
 
 ## 安装
 
+如下俩种方式
+
+1. 建议使用create-react-app的方式构建应用，命令如下
+
+```
+npx create-react-app my-app --template @liangshen/react-canvas 
+```
+
+2. 也可以在已有项目中进行安装, 使用 @liangshen/react-canvas 替换 react-dom 库来做渲染。
+
 ```
 npm i @liangshen/react-canvas -S
 ```
 
 ## 使用方法
-使用 @liangshen/react-canvas 替换 react-dom 库来做渲染。
 
 index.tsx
 ```tsx
@@ -57,6 +66,13 @@ export const App = () => <>
 * Image 图片类似html中的`img`
 * View 类似html中的`div`
 * ScrollView 类似html中可滚动的`div`
+
+## 打包
+
+如果使用了Layout插件的方式, 执行
+```
+npm run build:lib:layout-plugin
+```
 
 ### 使用到了minigame-canvas-engine做为Canvas的渲染库, 还是特别感谢下作者🙏
 
