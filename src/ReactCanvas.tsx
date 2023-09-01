@@ -157,7 +157,16 @@ const reconciler = ReactReconciler<string, any, Element, Element, Text, Element,
         }
         if (constructorMap.has(type)) {
             let constructor = constructorMap.get(type)!;
-            el = new constructor(options);
+            if (type === 'richtext') {
+                el = new constructor({
+                    ...options,
+                    contentStyle: options.style
+                });
+                el.observeStyleAndEvent();
+                el.text = props.value;
+            } else {
+                el = new constructor(options);
+            }
         } else {
             console.warn("不能解析标签" + type);
         }
